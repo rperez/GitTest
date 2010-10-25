@@ -17,34 +17,32 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+
             <div class="list">
-                <table>
-                    <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'persona.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="fechaDeNacimiento" title="${message(code: 'persona.fechaDeNacimiento.label', default: 'Fecha De Nacimiento')}" />
-                        
-                            <g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
-                        
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <g:each in="${personaInstanceList}" status="i" var="personaInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "id")}</g:link></td>
-                        
-                            <td><g:formatDate date="${personaInstance.fechaDeNacimiento}" /></td>
-                        
-                            <td>${fieldValue(bean: personaInstance, field: "nombre")}</td>
-                        
-                        </tr>
-                    </g:each>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- nombre de la columna-->
+                        <!--g:sortableColumn property="id" title="${message(code: 'persona.id.label', default: 'Id')}" /-->
+                        <g:sortableColumn property="fechaDeNacimiento" title="${message(code: 'persona.fechaDeNacimiento.label', default: 'Fecha De Nacimiento')}" />
+                        <g:sortableColumn property="nombre" title="${message(code: 'persona.nombre.label', default: 'Nombre')}" />
+                    </tr>
+                </thead>
+                <tbody>
+                <g:each in="${personaInstanceList}" status="i" var="personaInstance">
+                    <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        <!-- valores para el id y la liga-->
+                        <!--td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "id")}</g:link></td-->
+                        <td><g:formatDate date="${personaInstance.fechaDeNacimiento}" /></td>
+                        <!-- se mueve la liga al nombre-->
+                        <td><g:link action="show" id="${personaInstance.id}">${fieldValue(bean: personaInstance, field: "nombre")}</g:link></td>
+
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+
             <div class="paginateButtons">
                 <g:paginate total="${personaInstanceTotal}" />
             </div>
