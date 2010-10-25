@@ -2,7 +2,7 @@ package git.test
 
 import grails.test.*
 
-class PersonaTests extends GrailsUnitTestCase {
+class PersonaControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

@@ -2,6 +2,16 @@ package git.test
 
 class Persona {
 
-    static constraints = {
-    }
+    
+
+    String nombre
+    Date fechaDeNacimiento
+   
+   
+
+    
 }
+
+
+
+
